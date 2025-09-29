@@ -218,4 +218,14 @@
                             option.classList.add('incorrect');
                             const correctAnswer = question.querySelector('li[data-correct="true"]');
                             if(correctAnswer) {
-                                correctAnswer.
+                                correctAnswer.classList.add('correct');
+                            }
+                        }
+                        setTimeout(showNextQuestion, 2000);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
