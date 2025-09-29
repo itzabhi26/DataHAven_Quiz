@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataHaven Quiz</title>
+    <style>
+        /* Basic Styling for the page */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        /* Container for the quiz */
+        .quiz-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+            padding: 25px 35px;
+        }
+        /* Heading style */
+        h1 {
+            text-align: center;
+            color: #1a237e;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+        }
+        /* Individual question block */
+        .question-block {
+            margin-bottom: 25px;
+        }
+        /* Question text */
+        .question-block h2 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #3f51b5;
+        }
+        /* Options list styling */
+        .options {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .options li {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .options li:hover {
+            background-color: #e3f2fd;
+            border-color: #90caf9;
+        }
+        /* Style for the correct answer when revealed */
+        .correct {
+            background-color: #dcedc8 !important; /* Light green */
+            color: #2e7d32; /* Dark green text */
+            border-color: #a5d6a7 !important;
+            font-weight: bold;
+        }
+        /* Button styling */
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        #reveal-button {
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #reveal-button:hover {
+            background-color: #303f9f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>DataHaven Token Quiz 🧠</h1>
+
+        <div class="question-block">
+            <h2>1. What is the primary utility of the $HAVE token in DataHaven?</h2>
+            <ul class="options">
+                <li>A) Governance only</li>
+                <li>B) Gas fees only</li>
+                <li data-correct="true">C) Storage fees, gas, staking, and governance — all</li>
+                <li>D) Paying storage operators only</li>
+            </ul>
+        </div>
+
+        <div class="question-block">
+            <h2>2. How can $HAVE holders help secure the DataHaven network?</h2>
+            <ul class="options">
+                <li>A) By selling tokens</li>
+                <li data-correct="true">B) By delegating tokens to node operators</li>
+                <li>C) By freezing tokens</li>
+                <li>D) By swapping tokens</li>
+            </ul>
+        </div>
+
+        <div class="question-block">
+            <h2>3. How will $GLMR tokens be used within DataHaven?</h2>
+            <ul class="options">
+                <li>A) They will be burned</li>
+                <li data-correct="true">B) They can be re-staked</li>
+                <li>C) Only for governance</li>
+                <li>D) No utility at all</li>
+            </ul>
+        </div>
+
+        <div class="question-block">
+            <h2>4. According to the tokenomics, what is the total Genesis Supply?</h2>
+            <ul class="options">
+                <li>A) 1 Billion</li>
+                <li>B) 5 Billion</li>
+                <li data-correct="true">C) 10 Billion</li>
+                <li>D) 20 Billion</li>
+            </ul>
+        </div>
+
+        <div class="question-block">
+            <h2>5. What
