@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataHaven Quiz</title>
+    <title>Interactive Quiz</title>
     <style>
         /* Basic Styling for the page */
         body {
@@ -22,7 +22,8 @@
         .quiz-container {
             background-color: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px
+            12px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 700px;
             padding: 25px 35px;
@@ -37,7 +38,7 @@
         }
         /* Individual question block */
         .question-block {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
         /* Question text */
         .question-block h2 {
@@ -58,43 +59,43 @@
             padding: 12px 15px;
             margin-bottom: 8px;
             cursor: pointer;
-            transition: background-color 0.3s, border-color 0.3s;
+            transition: all 0.3s ease;
         }
         .options li:hover {
             background-color: #e3f2fd;
             border-color: #90caf9;
         }
-        /* Style for the correct answer when revealed */
+        
+        /* --- NEW STYLES FOR INTERACTIVITY --- */
+
+        /* Style for the CORRECT answer selection */
         .correct {
             background-color: #dcedc8 !important; /* Light green */
             color: #2e7d32; /* Dark green text */
             border-color: #a5d6a7 !important;
             font-weight: bold;
         }
-        /* Button styling */
-        .button-container {
-            text-align: center;
-            margin-top: 30px;
+
+        /* Style for the INCORRECT answer selection */
+        .incorrect {
+            background-color: #ffcdd2 !important; /* Light red */
+            color: #c62828; /* Dark red text */
+            border-color: #ef9a9a !important;
+            font-weight: bold;
         }
-        #reveal-button {
-            background-color: #3f51b5;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1em;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        #reveal-button:hover {
-            background-color: #303f9f;
+        
+        /* Disables hover effects after an answer is chosen */
+        .answered .options li:hover {
+             cursor: default;
+             background-color: #f9f9f9;
+             border-color: #ddd;
         }
     </style>
 </head>
 <body>
 
     <div class="quiz-container">
-        <h1>DataHaven Token Quiz 🧠</h1>
+        <h1>DataHaven Interactive Quiz ✅</h1>
 
         <div class="question-block">
             <h2>1. What is the primary utility of the $HAVE token in DataHaven?</h2>
@@ -115,9 +116,10 @@
                 <li>D) By swapping tokens</li>
             </ul>
         </div>
+    </div>
 
-        <div class="question-block">
-            <h2>3. How will $GLMR tokens be used within DataHaven?</h2>
+    <div class="question-block">
+            <h2>3. How will $GLMR tokens be used within DataHaven? </h2>
             <ul class="options">
                 <li>A) They will be burned</li>
                 <li data-correct="true">B) They can be re-staked</li>
@@ -125,16 +127,65 @@
                 <li>D) No utility at all</li>
             </ul>
         </div>
+    </div>
 
-        <div class="question-block">
-            <h2>4. According to the tokenomics, what is the total Genesis Supply?</h2>
+    <div class="question-block">
+            <h2>4. According to the tokenomics, what is the total Genesis Supply? </h2>
             <ul class="options">
                 <li>A) 1 Billion</li>
-                <li>B) 5 Billion</li>
-                <li data-correct="true">C) 10 Billion</li>
+                <li data-correct="true">B) 10 Billion</li>
+                <li>C) 5 Billion</li>
                 <li>D) 20 Billion</li>
             </ul>
         </div>
+    </div>
 
-        <div class="question-block">
-            <h2>5. What
+    <div class="question-block">
+            <h2>5. What percentage of tokens is allocated to the Community? </h2>
+            <ul class="options">
+                <li>A) 20%</li>
+                <li>B)10%</li>
+                <li  data-correct="true">C) 20%</li>
+                <li>D) 30%</li>
+            </ul>
+        </div>
+    </div>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const allOptions = document.querySelectorAll('.options li');
+
+            allOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const questionBlock = option.closest('.question-block');
+                    
+                    // Prevents re-answering the same question
+                    if (questionBlock.classList.contains('answered')) {
+                        return;
+                    }
+                    
+                    // Mark the question as answered
+                    questionBlock.classList.add('answered');
+
+                    const isCorrect = option.getAttribute('data-correct') === 'true';
+
+                    if (isCorrect) {
+                        // If correct, turn it green
+                        option.classList.add('correct');
+                    } else {
+                        // If incorrect, turn it red
+                        option.classList.add('incorrect');
+                        
+                        // And show the correct answer in green
+                        const correctAnswer = questionBlock.querySelector('li[data-correct="true"]');
+                        correctAnswer.classList.add('correct');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
